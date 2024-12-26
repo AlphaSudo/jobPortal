@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Page</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: 'Arial', sans-serif;
+        }
+        .register-container {
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+            width: 400px;
+        }
+        .register-container h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .btn-custom {
+            background-color: #5cb85c;
+            color: white;
+        }
+        .btn-custom:hover {
+            background-color: #4cae4c;
+        }
+        .link-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .link-container a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        .link-container a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<div class="register-container">
+    <h2>Register</h2>
+    <div th:if="${errorMessage}" class="alert alert-danger" role="alert">
+        <span th:text="${errorMessage}"></span>
+    </div>
+    <form id="registerForm" th:action="@{/register/new}" th:object="${user}" method="post">
+        <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="firstName">First Name</label>
+            <input type="text" class="form-control" id="firstName" name="firstName" th:field="*{firstName}" placeholder="Enter first name" required>
+        </div>
+        <div class="form-group col-md-6">
+            <label for="lastName">Last Name</label>
+            <input type="text" class="form-control" id="lastName" name="lastName" th:field="*{lastName}" placeholder="Enter last name" required>
+        </div>
+    </div>
+        <div class="form-group">
+            <label for="email">Email address</label>
+            <input type="email" class="form-control" id="email" name="email" th:field="*{email}" placeholder="Enter email" required>
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" id="password" name="password" th:field="*{password}" placeholder="Password" required>
+        </div>
+        <!-- make checkbox for account type -->
+        <div class="form-group">
+            <label for="userType">Account Type</label>
+            <select class="form-control" id="userType" th:field="*{userType}">
+                <option value="ROLE_RECRUITER">Recruiter</option>
+                <option value="ROLE_SEEKER">Job Seeker</option>
+            </select>
+        <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="terms">
+            <label class="form-check-label" for="terms">I agree to the <a href="#">Terms & Conditions</a></label>
+        </div>
+        <button type="submit" class="btn btn-custom btn-block">Register</button>
+        </div>
+    </form>
+    <div class="link-container">
+        <a href="/login">Already have an account? Login</a>
+    </div>
+</div>
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<!--<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>-->
+<!--<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>-->
+<!--<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>-->
+
+<script>
+    document.getElementById('registerForm').addEventListener('submit', function(event) {
+
+<!-- var name = document.getElementById('name').value;-->
+<!--var email = document.getElementById('email').value;-->
+<!-- var password = document.getElementById('password').value;-->
+        var terms = document.getElementById('terms').checked;
+
+        if (!terms) {
+            event.preventDefault();
+            alert("Please agree to the Terms & Conditions to register.");
+        }
+
+    });
+</script>
+
+</body>
+</html>

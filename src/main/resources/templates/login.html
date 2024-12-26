@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Elegant Login Page</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    body {
+      background-color: #f0f2f5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: 'Arial', sans-serif;
+    }
+    .login-container {
+      background-color: white;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+      width: 400px;
+    }
+    .login-container h2 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .form-group {
+      margin-bottom: 20px;
+    }
+    .btn-custom {
+      background-color: #5cb85c;
+      color: white;
+    }
+    .btn-custom:hover {
+      background-color: #4cae4c;
+    }
+    .link-container {
+      text-align: center;
+      margin-top: 20px;
+    }
+    .link-container a {
+      color: #007bff;
+      text-decoration: none;
+    }
+    .link-container a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+<!--go back to home page  add some bootstrap to it -->
+<!--<div>-->
+<!--  <img src="/uploads/chi.png" alt="abs image" style="width: 50px; height: 50px; border-radius: 50%;">-->
+<!--  <img src="/uploads/jey.jpg" alt="rel image" style="width: 50px; height: 50px; border-radius: 50%;">-->
+<!--  <img src="/uploads/jey.jpg" alt="rela image" >-->
+
+<!--</div>-->
+<div class="login-container">
+  <h2>Login</h2>
+
+  <form id="loginForm" action="#" th:action="@{/signin}" method="post">
+    <div th:if="${param.error}" class="alert alert-danger" role="alert">
+      <i class="fas fa-exclamation-triangle icon"></i>Invalid username or password.
+    </div>
+    <div th:if="${param.logout}" class="alert alert-success" role="alert">
+      <i class="fas fa-check-circle icon"></i>You have been logged out.
+    </div>
+    <div th:if="${param.registered}" class="alert alert-success" role="alert">
+      <i class="fas fa-check-circle icon"></i>You have been registered successfully.
+    </div>
+    <div th:if="${successMessage}" class="alert alert-success" role="alert">
+      <span th:text="${successMessage}"></span>
+    </div>
+    <div class="form-group">
+      <label for="email">Email address</label>
+      <input type="email" class="form-control" id="email"  name="email" placeholder="Enter email" required>
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
+    </div>
+    <div class="form-check">
+      <input type="checkbox" class="form-check-input" id="rememberMe">
+      <label class="form-check-label" for="rememberMe">Remember me</label>
+    </div>
+    <button type="submit" class="btn btn-custom btn-block">Login</button>
+    <button type="button" class="btn btn-custom btn-block" onclick="window.location.href='/home3'">Go back to Home</button>
+  </form>
+  <div class="link-container">
+    <a href="#" id="forgotPassword">Forgot Password?</a> |
+    <a href="/register" id="register">Register</a>
+  </div>
+</div>
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!--<script>-->
+<!--  document.getElementById('forgotPassword').addEventListener('click', function(event) {-->
+<!--    event.preventDefault();-->
+<!--    alert("Forgot password link clicked. Redirect to reset page.");-->
+<!--  });-->
+
+<!--  // document.getElementById('register').addEventListener('click', function(event) {-->
+<!--  //   event.preventDefault();-->
+<!--  //   alert("Register link clicked. Redirect to registration page.");-->
+<!--  // });-->
+
+<!--  document.getElementById('loginForm').addEventListener('submit', function(event) {-->
+<!--    event.preventDefault();-->
+<!--    var email = document.getElementById('email').value;-->
+<!--    var password = document.getElementById('password').value;-->
+<!--    var rememberMe = document.getElementById('rememberMe').checked;-->
+<!--    alert("Login attempted with Email: " + email + ", Password: " + password + ", Remember Me: " + rememberMe);-->
+<!--  });-->
+<!--</script>-->
+
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Portal</title>
+</head>
+<body>
+<header class="header">
+    <h1>Job Portal</h1>
+</header>
+
+<main class="main">
+    <div class="search-bar">
+        <input type="text" id="search-input" placeholder="Search for jobs">
+        <button id="search-button">Search</button>
+    </div>
+
+    <div id="job-list">
+    </div>
+</main>
+
+<footer class="footer">
+    &copy; 2023 Job Portal
+</footer>
+
+<style>
+    .header {
+        background-color: #007bff;
+        color: white;
+        padding: 20px;
+    }
+
+    .main {
+        padding: 20px;
+    }
+
+    .footer {
+        background-color: #f8f9fa;
+        padding: 20px;
+    }
+</style>
+
+<script>
+    const searchInput = document.getElementById('search-input');
+    const searchButton = document.getElementById('search-button');
+    const jobList = document.getElementById('job-list');
+
+    searchButton.addEventListener('click', () => {
+        const searchTerm = searchInput.value;
+        // Perform search and update jobList
+    });
+</script>
+</body>
+</html>

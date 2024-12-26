@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Job Portal</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f8f9fa;
+    }
+
+    .navbar {
+      background-color: #ff008c;
+    }
+
+    .navbar-brand, .nav-link {
+      color: #fff !important;
+    }
+
+    .hero {
+      background: url('https://as1.ftcdn.net/v2/jpg/03/50/08/88/1000_F_350088856_AmW0CTLD3vi2Kk7JTzHF9wsNeH1rf0bg.jpg') no-repeat center center/cover;
+      height: 80vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+    }
+
+    .hero h1 {
+      font-size: 4rem;
+      font-weight: bold;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-top: 15px;
+    }
+    /*make class for purpule font color */
+    .purple{
+      color: #ff008c;
+    }
+    .btn-primary{
+        background-color: #ff008c;
+        border-color: #ff008c;
+    }
+    .btn-primary:hover{
+        background-color: rgba(228, 34, 34, 0.98);
+        border-color: rgba(228, 34, 34, 0.98);
+    }
+
+    .search-bar {
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+      margin-top: -100px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .job-section h2 {
+      margin-top: 50px;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    .job-card {
+      border-radius: 10px;
+      box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .job-card:hover {
+      transform: scale(1.05);
+      background-color: rgba(241, 122, 190, 0.99);
+      border-color: rgba(241, 122, 190, 0.99);
+    }
+
+
+
+    footer {
+      margin-top: 50px;
+      background-color: #ff008c;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light">
+  <div class="container">
+    <a class="navbar-brand" href="#">JobPortal</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Jobs</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Contact Us</a>
+        </li>
+        <!-- th:if="${authenticatedUser.profiled != 1}" -->
+        <li class="nav-item">
+          <a class="nav-link" href="/login">Sign In</a>
+        </li>
+        </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<div class="hero text-center">
+  <div>
+    <h1 class="purple">Find Your Dream Job</h1>
+    <p class="purple">Your career starts here. Explore top opportunities today.</p>
+  </div>
+</div>
+
+<!-- Search Bar -->
+<div class="container search-bar">
+  <form>
+    <div class="row">
+      <div class="col-md-5 mb-3">
+        <input type="text" class="form-control" placeholder="Job Title, Keywords, or Company">
+      </div>
+      <div class="col-md-5 mb-3">
+        <input type="text" class="form-control" placeholder="Location">
+      </div>
+      <div class="col-md-2 mb-3">
+        <button type="submit" class="btn btn-primary w-100">Search</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+<!-- Job Listings Section -->
+<section class="job-section">
+  <div class="container">
+    <h2>Recent Job Listings</h2>
+    <div class="row mt-4">
+      <div class="col-md-4">
+        <div class="card job-card">
+          <div class="card-body">
+            <h5 class="card-title">Software Engineer</h5>
+            <p class="card-text">Company: Tech Solutions Inc.</p>
+            <p class="card-text">Location: New York, NY</p>
+            <a href="#" class="btn btn-primary">Apply Now</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card job-card">
+          <div class="card-body">
+            <h5 class="card-title">Data Analyst</h5>
+            <p class="card-text">Company: DataCorp</p>
+            <p class="card-text">Location: San Francisco, CA</p>
+            <a href="#" class="btn btn-primary">Apply Now</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card job-card">
+          <div class="card-body">
+            <h5 class="card-title">Marketing Specialist</h5>
+            <p class="card-text">Company: Marketing Pros</p>
+            <p class="card-text">Location: Los Angeles, CA</p>
+            <a href="#" class="btn btn-primary">Apply Now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="container">
+    <p>&copy; 2024 JobPortal. All Rights Reserved.</p>
+  </div>
+</footer>
+
+<!-- Bootstrap JS and dependencies -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  document.querySelector('.profile-options').addEventListener('change', function() {
+    if (this.value === 'logout') {
+      window.location.href = '/logout';
+    }
+  });
+</script>
+</body>
+</html>
